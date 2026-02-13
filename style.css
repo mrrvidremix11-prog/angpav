@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+  /*background: black;*/
+  margin: 0;
+  background: white;
+  text-align: center;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("dj-background.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+}
+
+/* CONTENT */
+.hero-content {
+  position: relative;
+  color: white;
+  z-index: 2;
+  animation: fadeUp 1.5s ease;
+}
+
+/* DJ NAME */
+.glow {
+  margin-top: 30px;
+  font-size: 125px;
+  font-weight: bold;
+  color: cyan;
+  text-shadow:
+    4px 4px 0 magenta,
+    0 0 20px cyan;
+}
+
+/* TAGLINE */
+.tagline {
+  margin: 15px 0 30px;
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.wave {
+  position: relative;
+  width: 240px;
+  height: 140px;
+  margin: 60px auto;
+  animation: beatDrop 0.5s infinite ease-in-out;
+}
+
+.wave span {
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  width: 6px;
+  height: 8px;
+  border-radius: 6px;
+  transform-origin: center -85px;
+  animation:
+    wave 1.2s infinite ease-in-out,
+    rgb 3s linear infinite;
+}
+
+/* 360 / 48 = 7.5deg */
+.wave span:nth-child(n) {
+  transform: rotate(calc(70deg * var(--i)));
+  animation-delay: calc(0.1s * var(--i));
+}
+
+/* assign index */
+.wave span:nth-child(1)  { --i:1 }   .wave span:nth-child(2)  { --i:2 }
+.wave span:nth-child(3)  { --i:3 }   .wave span:nth-child(4)  { --i:4 }
+.wave span:nth-child(5)  { --i:5 }   .wave span:nth-child(6)  { --i:6 }
+.wave span:nth-child(7)  { --i:7 }   .wave span:nth-child(8)  { --i:8 }
+.wave span:nth-child(9)  { --i:9 }   .wave span:nth-child(10) { --i:10 }
+.wave span:nth-child(11) { --i:11 }  .wave span:nth-child(12) { --i:12 }
+.wave span:nth-child(13) { --i:13 }  .wave span:nth-child(14) { --i:14 }
+.wave span:nth-child(15) { --i:15 }  .wave span:nth-child(16) { --i:16 }
+.wave span:nth-child(17) { --i:17 }  .wave span:nth-child(18) { --i:18 }
+.wave span:nth-child(19) { --i:19 }  .wave span:nth-child(20) { --i:20 }
+.wave span:nth-child(21) { --i:21 }  .wave span:nth-child(22) { --i:22 }
+.wave span:nth-child(23) { --i:23 }  .wave span:nth-child(24) { --i:24 }
+.wave span:nth-child(25) { --i:25 }  .wave span:nth-child(26) { --i:26 }
+.wave span:nth-child(27) { --i:27 }  .wave span:nth-child(28) { --i:28 }
+.wave span:nth-child(29) { --i:29 }  .wave span:nth-child(30) { --i:30 }
+.wave span:nth-child(31) { --i:31 }  .wave span:nth-child(32) { --i:32 }
+.wave span:nth-child(33) { --i:33 }  .wave span:nth-child(34) { --i:34 }
+.wave span:nth-child(35) { --i:35 }  .wave span:nth-child(36) { --i:36 }
+.wave span:nth-child(37) { --i:37 }  .wave span:nth-child(38) { --i:38 }
+.wave span:nth-child(39) { --i:39 }  .wave span:nth-child(40) { --i:40 }
+.wave span:nth-child(41) { --i:41 }  .wave span:nth-child(42) { --i:42 }
+.wave span:nth-child(43) { --i:43 }  .wave span:nth-child(44) { --i:44 }
+.wave span:nth-child(45) { --i:45 }  .wave span:nth-child(46) { --i:46 }
+.wave span:nth-child(47) { --i:47 }  .wave span:nth-child(48) { --i:48 }
+
+/* bar movement */
+@keyframes wave {
+  0%, 100% {
+    height: 22px;
+    opacity: 0.4;
+  }
+  50% {
+    height: 100px;
+    opacity: 1;
+  }
+}
+
+/* RGB color cycle */
+@keyframes rgb {
+  0%   { background: rgb(234, 0, 255);   box-shadow: 0 0 10px rgb(153, 0, 255); }
+  33%  { background: rgb(255, 0, 144);  box-shadow: 0 0 10px rgb(255, 0, 106); }
+  66%  { background: rgb(255, 0, 128);  box-shadow: 0 0 10px rgb(195, 0, 255); }
+  100% { background: rgb(195, 0, 255);   box-shadow: 0 0 10px red; }
+}
+
+/* fake beat drop pulse */
+@keyframes beatDrop {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.02); }
+}
+
+/* PHOTO */
+.circle {
+  position: absolute;
+  top: 57.4%;
+  left: 50.3%;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;transform-origin: center -0px;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.circle {
+  animation: spin 6s linear infinite;
+}
+
+/* ANIMATIONS */
+@keyframes wave {
+  0%, 100% { height: 20px; }
+  50% { height: 45px; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Container */
+.contact {
+  display: flex;
+  gap: 64px;                 /* 255px is very wide—24–32px is typical */
+  justify-content: center;
+  align-items: center;
+  margin-top: 218px;          /* 130px is quite large for most layouts */
+  flex-wrap: wrap;           /* allows wrap on small screens */
+}
+
+/* Base button style */
+.contact a {
+  width: 60px;               /* give it a visible size */
+  height: 60px;
+  border-radius: 50%;        /* circular buttons */
+  display: inline-flex;      /* inline-flex is fine for anchors */
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 28px;           /* icon font size (adjust as needed) */
+  text-decoration: none;
+  background: #666;          /* fallback color if a class not set */
+  box-shadow: 0 0 0 rgba(0,0,0,0);  /* smoother transition from none */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+/* Brand colors */
+.contact a.telegram  { background: #0088cc; }
+.contact a.facebook  { background: #1877f2; }
+.contact a.tiktok    { background: #000000;    } /* TikTok commonly black; adjust if you prefer #010101 or gradient */
+
+/* Hover / active */
+.contact a:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+.contact a:active {
+  transform: translateY(0) scale(1.02);
+}
+
+/* Keyboard accessibility */
+.contact a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Optional: if using <i> or <svg> inside <a>, normalize size */
+.contact a i,
+.contact a svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+.contact a.telegram:hover { box-shadow: 0 8px 18px rgba(0,136,204,0.45); }
+.contact a.facebook:hover { box-shadow: 0 8px 18px rgba(24,119,242,0.45); }
+.contact a.tiktok:hover   { box-shadow: 0 8px 18px rgba(0,0,0,0.45); }
+
+@media (max-width: 480px) {
+  .contact a {
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+  }
+}
